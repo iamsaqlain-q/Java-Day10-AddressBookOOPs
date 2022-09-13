@@ -11,11 +11,30 @@ public class AddressBookMain {
 		Character ch = 'a';
 		Scanner sc = new Scanner(System.in);
 		
-		AddressBookServices create = new AddressBookServImpl();
-		create.createContact();
+		while(!ch.equals('q')) {
+			
+			 System.out.print("\na) Add \nq) Quit \nEnter a character: ");
+		      ch = sc.next().charAt(0);
+		      
+		      switch (ch) {
+		        case 'a':
+		        	AddressBookServices con = new AddressBookServImpl();
+		            con.createContact();
+		            System.out.println("Added person's details : ");
+		            con.displayContact();
+		          break;
+
+		        case 'q':
+		          break;
+
+		        default:
+		          System.out.println("Please enter a valid character");
+		          break;
+
+		      }
+		}
 		
-		System.out.println("Created Contact  : ");
-		create.displayContact();
+		sc.close();
 	}
 
 }

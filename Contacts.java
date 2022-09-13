@@ -2,8 +2,7 @@ package com.addressbook.controller;
 
 public class Contacts {
 		
-		String firstN, lastN, address, city, state, email;
-		int zip, phN;
+		String firstN, lastN, address, city, state, email, zip, phN;
 		
 		public String getFirstN() {
 			return firstN;
@@ -41,16 +40,16 @@ public class Contacts {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public int getZip() {
+		public String getZip() {
 			return zip;
 		}
-		public void setZip(int zip) {
+		public void setZip(String zip) {
 			this.zip = zip;
 		}
-		public int getPhN() {
+		public String getPhN() {
 			return phN;
 		}
-		public void setPhN(int phN) {
+		public void setPhN(String phN) {
 			this.phN = phN;
 		}	
 	}
