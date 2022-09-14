@@ -14,28 +14,30 @@ public class AddressBookMain {
 		
 		while(!ch.equals('q')) {
 			
-			 System.out.print("\n a) Add \n d) Delete \n e) Edit \n q) Quit \nEnter a character: ");
+			 System.out.print("\n a) Add \n d) Delete \n e) Edit \n s) Show \n q) Quit \nEnter a character: ");
 		      ch = sc.next().charAt(0);
 		      
 		      switch (ch) {
 		        case 'a':
-		        	Contacts c = con.createContact();
+		            Contacts c = con.createContact();
 		        	contactList.add(c);
-		        	con.displayContact(c);
-		            System.out.println("Added person's details : ");
-		            
+		        	//con.displayContact(c);
 		            break;
 		          
 		        case 'e' :
-		        	 Contacts c2 = con.createContact();
 		        	 con.editContact(contactList);
 		        	 System.out.println("Contact has been edited");
-		        	 con.displayContact(c2);
 		        	 break;
 		        	 
 		        case 'd' :
 		        	 con.deleteContact(contactList);
 		        	 break;
+		        	 
+		        case 's' : 
+		        	System.out.println("Added person's details : ");
+		        	con.displayContact();
+		        	
+		        	break;
 
 		        case 'q':
 		        	 break;
@@ -55,7 +57,7 @@ public class AddressBookMain {
 interface AddressBookServices {
 	
 	public Contacts createContact();
-	public void displayContact(Contacts con);
+	public void displayContact();
 	public void editContact(ArrayList<Contacts> contactList);
 	public void deleteContact(ArrayList<Contacts> contactList);
 	
@@ -92,7 +94,9 @@ class AddressBookServImpl implements AddressBookServices {
 	}
 	
 	@Override
-	public void displayContact(Contacts con) {
+	public void displayContact() {
+		
+		Contacts con = new Contacts();
 		
 		System.out.println("First Name : " + con.getFirstN());
 		System.out.println("Last Name : " + con.getLastN());
@@ -100,7 +104,6 @@ class AddressBookServImpl implements AddressBookServices {
 		System.out.println("City : " + con.getCity());
 		System.out.println("State : " + con.getState());
 		System.out.println("E-mail : " + con.getEmail());
-
 	}
 
 	@Override
